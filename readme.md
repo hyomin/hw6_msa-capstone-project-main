@@ -214,27 +214,65 @@ order > inventory 재고량을 조회
 ---
 
 #### Circuit Breaker
+(비기능적 요구사항)
+장애격리
+상점관리 기능이 수행되지 않더라도 주문은 365일 24시간 받을 수 있어야 한다 Async (event-driven), Eventual Consistency 결제시스템이 과중되면 사용자를 잠시동안 받지 않고 결제를 잠시후에 하도록 유도한다 Circuit breaker, fallback
 
-내용내용
 
-<br>
+Circuit Breaker 패턴이란 하나의 컴포넌트가 느려지거나 장애가 나면 그 장애가난 컴포넌트를 호출하는 종속된 컴포넌트까지 장애가 전파될때, 장애가 전파되지 않도록 회로 차단기 개념으로 장애 발생시 전파가 되지 않도록 하는 패턴을 말한다. 즉, Service A 와 B간의 통신중, B에 오류가 발생 할 경우 Circuit Breaker 가 작동하여 B를 호출하는 A 쓰레드들을 모두 차단하여 A가 더이상 B 서비스를 기다리지 않도록 하는 개념이다.
 
-- 설명설명(이미지)
+본 프로젝트에서는 Hystrix 라이브러리를 사용하였고 아래와 같이
+요청처리 쓰레드에서 처리시간이 610 밀리가 넘어서기 시작하여 어느정도 유지되면 CB 회로가 닫히도록 (요청을 빠르게 실패처리, 차단) 설정하였다.
 
-<img width="665" src="">
+<img width="450" alt="CircuitBreaker설정Yml" src="https://user-images.githubusercontent.com/5373350/197447628-5eb3dbeb-672a-42b2-be9b-e312aa7b7ca4.png">
+
+아래는 siege 를 활용하여 시스템 부하를 통해 Circuit Breaker가 동작하는 모습이다.
+
+![image](https://user-images.githubusercontent.com/5373350/197448196-4fdfdd30-2cd1-4a3c-a67a-0fa6537fe35d.png)
+
+
+#### Fallback
+
+Circuit Breaker 가 작동하여 서비스가 호출이 되지 않을 경우 이에 대해 서비스가 호출 되지 않는다 라는 응답이 필요한 경우 이를 설정 하는 부분이다.
+
+우선, feign를 사용하였고, 아래와 같이 order -> payment 가 동기 호출(Req,Res) 인데, 이때, Payment 호출이 되지 않을 경우
+PaymentServiceFallback 을 호출 한다는 의미이다.
+
+<img width="752" alt="image" src="https://user-images.githubusercontent.com/5373350/197451487-a4575fde-c1ed-4eaa-9413-5e2438dfd896.png">
+
+그리고 아래는 실제 Payment 서비스를 종료 시키고 order 서비스만 동작한뒤, 주문을 하였을때, 실제 fallback 이 실행되는 부분이다.
+
+1. fallback 로직 구현
+<img width="576" alt="image" src="https://user-images.githubusercontent.com/5373350/197452187-060a54a3-420d-4ccd-b529-24ffa145f1c7.png">
+
+
+2. fallback 로직 실행
+![image](https://user-images.githubusercontent.com/5373350/197452125-a56bfc59-58bb-4f63-8471-c8b9dbf26bad.png)
 
 
 ---
 
 #### Gateway / Ingress
 
-내용내용
+여러 개의 클라이언트가 여러 개의 서버 서비스를 각각 호출하게 된다면 매우 복잡한 호출 관계가 생성 되는데, 이를 해결하기 위해 단일 진입점을 만드는 것이 게이트웨이다. 아래 그림과 같이 다양한 클라이언트가 다양한 서비스에 액세스하기 위해서는 단일 진입점을 만들어 놓으면 여러모로 효율적이다. 다른 유형의 클라이언트에게 서로 다른 API조합을 제공할 수도 있고 각 서비스 접근 시 필요한 인증/인가 기능을 한 번에 처리할 수도 있다. 또 정상적으로 동작하던 서비스에 문제가 발생하여 서비스 요청에 대한 응답 지연이 발생하면 정상적인 다른 서비스로 요청 경로를 변경하는 기능이 작동되게 할 수도 있다.
 
+<img width="584" alt="MSA2 16" src="https://user-images.githubusercontent.com/5373350/197448502-b216e83b-3461-48bd-b84d-ce76f505b704.png">
+
+아래는 게이트 웨이의 진입점 포트(8088)와 연결되어있는 서비스들에 대한 설정 부분이고
+
+<img width="373" alt="image" src="https://user-images.githubusercontent.com/5373350/197448604-29049486-5ec4-46f7-b7fb-4021d1423ec9.png">
+
+아래 두개 화면은 8088 포트로 주문과 주문확인을 진행 하였을때, 내부적으로 어떻게 호출하는지에 대한 부분이다.
+
+
+1. 8088 포트로 주문시 8082 포트로 올려진 order서비스 호출됨
+
+<img width="776" alt="gateway서비스를 통한 주문" src="https://user-images.githubusercontent.com/5373350/197448995-420c66dc-9e4d-4408-92a3-4b08c968b355.png">
+
+2. 주문확인
+
+<img width="549" alt="gateway서비스를 통한 주문내역확인" src="https://user-images.githubusercontent.com/5373350/197449086-ff6700fa-0aaf-40ea-9e9d-9bd2587d22b6.png">
 <br>
-
-- 설명설명(이미지)
-
-<img width="665" src="">
 
 
 ---
