@@ -196,3 +196,122 @@ SAGA 패턴이란 마이크로서비스들끼리 이벤트를 주고 받아 특�
 - 주문내역삭제(Correlation _ Compensation)
 
 <img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8%EB%82%B4%EC%97%AD%EC%82%AD%EC%A0%9C(Correlation%20_%20Compensation).png">
+
+
+---
+
+#### Request / Response
+
+order > inventory 재고량을 조회
+
+<br>
+
+- 주문 취소
+
+<img width="665" src="">
+
+
+---
+
+#### Circuit Breaker
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Gateway / Ingress
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Deploy / Pipeline
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Autoscale (HPA)
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Zero-downtime deploy (Readiness probe)
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Persistence Volume/ConfigMap/Secret
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Polyglot
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
+---
+
+#### Self-healing (liveness probe)
+
+내용내용
+
+<br>
+
+- 설명설명(이미지)
+
+<img width="665" src="">
+
+
