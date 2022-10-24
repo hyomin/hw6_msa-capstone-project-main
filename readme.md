@@ -179,5 +179,14 @@ SAGA 패턴이란 마이크로서비스들끼리 이벤트를 주고 받아 특�
     }
 ```
 
- 
+---
 
+#### Compensation / Correlation
+
+주문에 대한 복구 / 취소가 가능해야 한다. 해당 취소건에 대해서 필터링이 되어야 한다.
+
+<br>
+
+<img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8%EC%B7%A8%EC%86%8C.png">
+
+<br>
