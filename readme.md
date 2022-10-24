@@ -187,6 +187,12 @@ SAGA 패턴이란 마이크로서비스들끼리 이벤트를 주고 받아 특�
 
 <br>
 
+- 주문 취소
+
 <img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8%EC%B7%A8%EC%86%8C.png">
 
 <br>
+
+- 주문내역삭제(Correlation _ Compensation)
+
+<img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8%EB%82%B4%EC%97%AD%EC%82%AD%EC%A0%9C(Correlation%20_%20Compensation).png">
