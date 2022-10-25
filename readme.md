@@ -279,13 +279,10 @@ PaymentServiceFallback 을 호출 한다는 의미이다.
 
 #### Deploy / Pipeline
 
-내용내용
-
+kubernetes yaml 파일을 이용한 서비스 기동 확인
 <br>
+<img width="669" alt="deployment" src="https://user-images.githubusercontent.com/5373350/197651330-da10fce9-e54a-4f1b-8f59-de7874b8a921.png">
 
-- 설명설명(이미지)
-
-<img width="665" src="">
 
 
 ---
@@ -305,13 +302,15 @@ PaymentServiceFallback 을 호출 한다는 의미이다.
 
 #### Zero-downtime deploy (Readiness probe)
 
-내용내용
+서비스 재 배포시, 중단시간 없는 배포를 위해 yaml파일에 아래와 같이 설정 
 
-<br>
+<img width="289" alt="스크린샷 2022-10-25 오전 9 48 46" src="https://user-images.githubusercontent.com/5373350/197656953-f63215ec-c941-42d1-962d-2fc1e7499d5f.png">
 
-- 설명설명(이미지)
+재배포시 서비스 중단 발생 확인을 위해 siege로 부하 설정 및 서비스 무중단 확인
 
-<img width="665" src="">
+<img width="466" alt="무정지배포 siege" src="https://user-images.githubusercontent.com/5373350/197657042-414a9146-64aa-47cc-90d7-eb3c406beb85.png">
+
+<img width="659" alt="스크린샷 2022-10-25 오전 9 50 49" src="https://user-images.githubusercontent.com/5373350/197656997-21fdef4c-1c12-4723-bbce-232b9330b693.png">
 
 
 ---
