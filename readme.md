@@ -214,13 +214,6 @@ order > inventory 재고량을 조회
 <img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EA%B2%B0%EC%A0%9C%EB%82%B4%EC%97%AD%EC%83%9D%EC%84%B1(REQ_RES).png">
 
 
-<br>
-
-- 주문 취소
-
-<img width="665" src="">
-
-
 ---
 
 #### Circuit Breaker
