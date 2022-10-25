@@ -289,13 +289,11 @@ kubernetes yaml 파일을 이용한 서비스 기동 확인
 
 #### Autoscale (HPA)
 
-내용내용
+order pod의 cpu사용률이 50% 가 넘어갈 경우 autoscale 되도록 설정
 
-<br>
+<img width="901" alt="스크린샷 2022-10-25 오후 1 21 23" src="https://user-images.githubusercontent.com/5373350/197681933-56fe0404-62f5-4e53-bb4a-1fd058b5ad09.png">
 
-- 설명설명(이미지)
 
-<img width="665" src="">
 
 
 ---
