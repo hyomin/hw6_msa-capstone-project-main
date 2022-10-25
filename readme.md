@@ -204,6 +204,9 @@ SAGA 패턴이란 마이크로서비스들끼리 이벤트를 주고 받아 특�
 
 order > inventory 재고량을 조회
 
+- 주문 내용
+<img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8.PNG">
+
 - 주문 생성
 <img width="665" src="https://github.com/hyomin/hw6_msa-capstone-project-main/blob/main/capture/kor/%EC%A3%BC%EB%AC%B8%EC%83%9D%EC%84%B1.png">
 
