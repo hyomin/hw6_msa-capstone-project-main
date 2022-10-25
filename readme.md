@@ -279,13 +279,10 @@ PaymentServiceFallback 을 호출 한다는 의미이다.
 
 #### Deploy / Pipeline
 
-내용내용
-
+kubernetes yaml 파일을 이용한 서비스 기동 확인
 <br>
+<img width="669" alt="deployment" src="https://user-images.githubusercontent.com/5373350/197651330-da10fce9-e54a-4f1b-8f59-de7874b8a921.png">
 
-- 설명설명(이미지)
-
-<img width="665" src="">
 
 
 ---
