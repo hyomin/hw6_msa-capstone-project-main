@@ -5,6 +5,9 @@
 ## Table of contents
 - [서비스 시나리오](#서비스-시나리오)
 - [분석/설계](#분석/설계)
+- 기본 설계도 : https://dev.msaez.io/#/storming/Dc7JnR7Yypdh6nvnTU0KejvJ8wT2/6e738525961b42478215bc42a1958405
+- 평가 체크포인트 : https://workflowy.com/s/c10811dfdb67/UhOZB2crKOhNPUYp#/fc30a50ea43b
+- 6차수 git 주소 : https://github.com/hyomin/hw6_msa-capstone-project-main
 ---
 ### 서비스 시나리오
 배달의 민족 커버하기 - https://1sung.tistory.com/106
